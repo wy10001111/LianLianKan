@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<MessageGameRecords>
+  <ID>2</ID>
+  <Records>
+    <GameRecord PlayTime="2020-11-27 11:23:22" SpentTime="00:35:868601" />
+    <GameRecord PlayTime="2020-11-27 11:22:07" SpentTime="00:37:899291" />
+    <GameRecord PlayTime="2020-11-27 11:20:20" SpentTime="00:41:009794" />
+    <GameRecord PlayTime="2020-11-26 22:24:36" SpentTime="11:12:123456" />
+  </Records>
+</MessageGameRecords>

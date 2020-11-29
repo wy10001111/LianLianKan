@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LianLianKan", "LianLianKan\LianLianKan.csproj", "{5EA741EE-12CB-44B8-B998-F0F2D8D60750}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LianLianKanServer", "LianLianKanServer\LianLianKanServer.csproj", "{2AE8FB65-3258-430A-93D9-131BA6618EE1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LianLianKanLib", "LianLianKanLib\LianLianKanLib.csproj", "{C6664A9C-D432-48D2-9582-D1A079318D7C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5EA741EE-12CB-44B8-B998-F0F2D8D60750}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EA741EE-12CB-44B8-B998-F0F2D8D60750}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EA741EE-12CB-44B8-B998-F0F2D8D60750}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EA741EE-12CB-44B8-B998-F0F2D8D60750}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AE8FB65-3258-430A-93D9-131BA6618EE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AE8FB65-3258-430A-93D9-131BA6618EE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AE8FB65-3258-430A-93D9-131BA6618EE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AE8FB65-3258-430A-93D9-131BA6618EE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6664A9C-D432-48D2-9582-D1A079318D7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6664A9C-D432-48D2-9582-D1A079318D7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6664A9C-D432-48D2-9582-D1A079318D7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6664A9C-D432-48D2-9582-D1A079318D7C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

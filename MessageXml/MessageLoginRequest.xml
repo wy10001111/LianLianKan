@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<MessageLoginRequest>
+  <ID>0</ID>
+  <Account>user1</Account>
+  <Password>user1</Password>
+</MessageLoginRequest>a" xmlns="Message">
+  <ID>0</ID>
+  <Account>user1</Account>
+  <Password>user1</Password>
+</MessageLoginRequest>
