@@ -1,0 +1,8 @@
+LianLianKan.exe:
+游戏在Client文件夹。
+用户可以注册和登录，也可以游客登录。
+
+LianLianKanServer.exe：
+本游戏，可以登录，但需要LianLianKanServer.exe服务端（Server文件夹）。
+LianLianKanServer.exe将用户数据储存在MySql中，所以必须安装MySql。
+SQL语句，在项目LianLianKan中的SqlCode\lianliankan_sql.sql中。用户可自行创建。
