@@ -33,6 +33,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="Client\Debug\Image\DefaultGentleman.png" />
+    <Content Include="Client\Debug\Image\DefaultLady.png" />
+    <Content Include="Client\Debug\Image\Logo.ico" />
+    <Content Include="Client\Debug\LianLianKan.exe" />
+    <Content Include="Client\Debug\LianLianKan.pdb" />
+    <Content Include="Client\Debug\LianLianKan.vshost.exe" />
+    <Content Include="Client\Debug\LianLianKanLib.dll" />
+    <Content Include="Client\Debug\LianLianKanLib.pdb" />
+    <Content Include="Client\Debug\Sound\FailToMatch.wav" />
+    <Content Include="Client\Debug\Sound\GameOver.wav" />
+    <Content Include="Client\Debug\Sound\MessageWindow.wav" />
+    <Content Include="Client\Debug\Sound\SucceedToMatch.wav" />
     <Content Include="Server\Debug\BouncyCastle.Crypto.dll" />
     <Content Include="Server\Debug\Google.Protobuf.dll" />
     <Content Include="Server\Debug\Google.Protobuf.xml" />
@@ -49,11 +61,12 @@
     <Content Include="Server\Debug\Renci.SshNet.xml" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Client\Debug\LianLianKan.exe.config" />
+    <None Include="Client\Debug\LianLianKan.vshost.exe.config" />
+    <None Include="Client\Debug\LianLianKan.vshost.exe.manifest" />
     <None Include="Server\Debug\LianLianKanServer.exe.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Client\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
