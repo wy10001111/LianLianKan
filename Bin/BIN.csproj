@@ -37,10 +37,6 @@
     <Content Include="Client\Debug\Image\DefaultLady.png" />
     <Content Include="Client\Debug\Image\Logo.ico" />
     <Content Include="Client\Debug\LianLianKan.exe" />
-    <Content Include="Client\Debug\LianLianKan.pdb" />
-    <Content Include="Client\Debug\LianLianKan.vshost.exe" />
-    <Content Include="Client\Debug\LianLianKanLib.dll" />
-    <Content Include="Client\Debug\LianLianKanLib.pdb" />
     <Content Include="Client\Debug\Sound\FailToMatch.wav" />
     <Content Include="Client\Debug\Sound\GameOver.wav" />
     <Content Include="Client\Debug\Sound\MessageWindow.wav" />
@@ -61,9 +57,6 @@
     <Content Include="Server\Debug\Renci.SshNet.xml" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Client\Debug\LianLianKan.exe.config" />
-    <None Include="Client\Debug\LianLianKan.vshost.exe.config" />
-    <None Include="Client\Debug\LianLianKan.vshost.exe.manifest" />
     <None Include="Server\Debug\LianLianKanServer.exe.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
