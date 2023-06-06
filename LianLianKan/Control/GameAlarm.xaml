@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="LianLianKan.Control.GameAlarm"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LianLianKan.Control"
+             x:Name="alarmControl" 
+             mc:Ignorable="d" 
+             d:DesignHeight="105" d:DesignWidth="219">
+    <UserControl.Background>
+        <ImageBrush ImageSource="..\Image\Alarm.png" />
+    </UserControl.Background>
+    <UserControl.Resources>
+        <local:GameTimeConvert x:Key="gameTimeConvert" />
+    </UserControl.Resources>
+    <Canvas x:Name="canvas">
+        <Viewbox x:Name="viewBox" Canvas.Left="0" Canvas.Bottom="0" 
+                 Width="{Binding ActualWidth, ElementName=canvas}" 
+                 Height="78" >
+            <Label FontFamily="Comic Sans MS" Margin="0, 0, 0, 0"
+                   Content="{Binding GameTime, Mode=TwoWay, ElementName=alarmControl, Converter={StaticResource gameTimeConvert}}"  />
+        </Viewbox>
+    </Canvas>
+</UserControl>

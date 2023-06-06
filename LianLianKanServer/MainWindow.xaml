@@ -1,0 +1,144 @@
+﻿<Window x:Class="LianLianKanServer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:scm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
+        xmlns:llkl="clr-namespace:LianLianKanLib;assembly=LianLianKanLib"
+        xmlns:local="clr-namespace:LianLianKanServer"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"
+        Closing="OnClosing"
+        Title="MainWindow" Height="500" Width="525">
+    <Window.Resources>
+        <CollectionViewSource x:Key="onlineUserList" Source="{Binding UserList}" Filter="OnlineFilter" 
+                              IsLiveFilteringRequested="True"  >
+            <CollectionViewSource.LiveFilteringProperties>
+                <sys:String>Endpoint</sys:String>
+            </CollectionViewSource.LiveFilteringProperties>
+        </CollectionViewSource>
+    </Window.Resources>
+    <VisualStateManager.VisualStateGroups>
+        <VisualStateGroup x:Name="WindowStates">
+            <VisualState x:Name="ServingState" >
+                <Storyboard AutoReverse="False">
+                    <BooleanAnimationUsingKeyFrames
+                            Storyboard.TargetProperty="IsEnabled" BeginTime="0:0:0"
+                            Storyboard.TargetName="openButton" >
+                        <DiscreteBooleanKeyFrame KeyTime="0:0:0" Value="False" />
+                    </BooleanAnimationUsingKeyFrames>
+                    <BooleanAnimationUsingKeyFrames
+                            Storyboard.TargetProperty="IsEnabled" BeginTime="0:0:0"
+                            Storyboard.TargetName="closeButton" >
+                        <DiscreteBooleanKeyFrame KeyTime="0:0:0" Value="True" />
+                    </BooleanAnimationUsingKeyFrames>
+                    <BooleanAnimationUsingKeyFrames
+                            Storyboard.TargetProperty="IsEnabled" BeginTime="0:0:0"
+                            Storyboard.TargetName="databaseGroupBox" >
+                        <DiscreteBooleanKeyFrame KeyTime="0:0:0" Value="False" />
+                    </BooleanAnimationUsingKeyFrames>
+                    <BooleanAnimationUsingKeyFrames
+                            Storyboard.TargetProperty="IsEnabled" BeginTime="0:0:0"
+                            Storyboard.TargetName="serverGroupBox" >
+                        <DiscreteBooleanKeyFrame KeyTime="0:0:0" Value="False" />
+                    </BooleanAnimationUsingKeyFrames>
+                </Storyboard>
+            </VisualState>
+            <VisualState x:Name="ClosingState" >
+                <Storyboard AutoReverse="False">
+                    <BooleanAnimationUsingKeyFrames
+                            Storyboard.TargetProperty="IsEnabled" BeginTime="0:0:0"
+                            Storyboard.TargetName="openButton" >
+                        <DiscreteBooleanKeyFrame KeyTime="0:0:0" Value="True" />
+                    </BooleanAnimationUsingKeyFrames>
+                    <BooleanAnimationUsingKeyFrames
+                            Storyboard.TargetProperty="IsEnabled" BeginTime="0:0:0"
+                            Storyboard.TargetName="closeButton" >
+                        <DiscreteBooleanKeyFrame KeyTime="0:0:0" Value="False" />
+                    </BooleanAnimationUsingKeyFrames>
+                    <BooleanAnimationUsingKeyFrames
+                            Storyboard.TargetProperty="IsEnabled" BeginTime="0:0:0"
+                            Storyboard.TargetName="databaseGroupBox" >
+                        <DiscreteBooleanKeyFrame KeyTime="0:0:0" Value="True" />
+                    </BooleanAnimationUsingKeyFrames>
+                    <BooleanAnimationUsingKeyFrames
+                            Storyboard.TargetProperty="IsEnabled" BeginTime="0:0:0"
+                            Storyboard.TargetName="serverGroupBox" >
+                        <DiscreteBooleanKeyFrame KeyTime="0:0:0" Value="True" />
+                    </BooleanAnimationUsingKeyFrames>
+                </Storyboard>
+            </VisualState>
+        </VisualStateGroup>
+    </VisualStateManager.VisualStateGroups>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Canvas Grid.Row="0" Grid.Column="0" Height="160" Width="250" Background="LightBlue" >
+            <GroupBox x:Name="databaseGroupBox" Header="数据库配置" Canvas.Left="0" Canvas.Top="0" >
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal" >
+                        <Label Content="用户名：" />
+                        <TextBox x:Name="usernameBox" InputMethod.IsInputMethodEnabled="False" Width="100" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" >
+                        <Label Content="密   码：" />
+                        <PasswordBox x:Name="passwordBox" Width="100" />
+                    </StackPanel>
+                </StackPanel>
+            </GroupBox>
+            <GroupBox x:Name="serverGroupBox" Header="服务器配置" Canvas.Left="0" Canvas.Top="80" >
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal" >
+                        <Label Content="主   机：" />
+                        <TextBox x:Name="hostBox" Text="127.0.0.2" InputMethod.IsInputMethodEnabled="False" Width="100" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" >
+                        <Label Content="端   口：" />
+                        <TextBox x:Name="portBox" Text="69" InputMethod.IsInputMethodEnabled="False" Width="100" />
+                    </StackPanel>
+                </StackPanel>
+            </GroupBox>
+            <Button x:Name="openButton" Content="开启服务" Click="OnOpenServer" Canvas.Left="180" Canvas.Top="10" Width="60" Height="60" />
+            <Button x:Name="closeButton" IsEnabled="False" Content="关闭服务" Click="OnCloseServer" Canvas.Left="180" Canvas.Top="90" Width="60" Height="60" />
+        </Canvas>
+        <GroupBox Header="用户列表" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" >
+            <DataGrid x:Name="userDataGrid" ItemsSource="{Binding UserList}" AutoGenerateColumns="False" IsReadOnly="True" 
+                      SelectionChanged="DataGrid_SelectionChanged" >
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID" Binding="{Binding ID}" />
+                    <DataGridTextColumn IsReadOnly="True" Header="Account" Binding="{Binding Account}" />
+                    <DataGridTextColumn IsReadOnly="True" Header="Password" Binding="{Binding Password}" />
+                    <DataGridTextColumn IsReadOnly="True" Header="Name" Binding="{Binding Name}" />
+                    <DataGridTextColumn IsReadOnly="True" Header="Introduce" Binding="{Binding Introduce}" />
+                    <DataGridTextColumn IsReadOnly="True" Header="Head image path" Binding="{Binding HeadImagePath}" />
+                </DataGrid.Columns>
+                <DataGrid.RowDetailsTemplate>
+                    <DataTemplate DataType="llkl:UIUser">
+                        <StackPanel Orientation="Vertical" Background="Yellow" HorizontalAlignment="Left">
+                            <TextBlock Text="{Binding Introduce, StringFormat='{} Introduce : {0}'}" />
+                            <TextBlock Text="{Binding HeadImagePath, StringFormat='{} HeadImagePath : {0}'}" />
+                            <GroupBox Header="Game Records" >
+                                <DataGrid Margin="2" ItemsSource="{Binding GameRecords}" Height="100" IsReadOnly="True" />
+                            </GroupBox>
+                        </StackPanel>
+                    </DataTemplate>
+                </DataGrid.RowDetailsTemplate>
+            </DataGrid>
+        </GroupBox>
+        <GroupBox Header="在线用户" Grid.Row="0" Grid.Column="1">
+            <DataGrid ItemsSource="{Binding}" DataContext="{StaticResource onlineUserList}" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn IsReadOnly="True" Header="ID" Binding="{Binding ID}" />
+                    <DataGridTextColumn IsReadOnly="True" Header="Name" Binding="{Binding Name}" />
+                    <DataGridTextColumn IsReadOnly="True" Header="Address" Binding="{Binding Address}" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </GroupBox>
+    </Grid>
+</Window>

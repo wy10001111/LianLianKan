@@ -1,0 +1,40 @@
+﻿<UserControl x:Class="LianLianKan.Control.FivePointedStar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LianLianKan.Control"
+             mc:Ignorable="d" 
+             d:DesignHeight="10" d:DesignWidth="10">
+    <Grid>
+        <Path Stretch="Uniform" >
+            <Path.Fill>
+                <SolidColorBrush x:Name="fillColor" Color="CadetBlue"/>
+            </Path.Fill>
+            <Path.Stroke>
+                <SolidColorBrush x:Name="strokeColor" Color="AliceBlue"/>
+            </Path.Stroke>
+            <Path.Data>
+                <PathGeometry Figures="M50, 0
+                              L 36,  36
+                              L 0,  36
+                              L 30,  60
+                              L 16,  100
+                              L 50,  74
+                              L 84,  100
+                              L 70,  60
+                              L 100,  36
+                              L 64,  36
+                              L 50,  0
+                              Z" />
+            </Path.Data>
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform x:Name="starScale"  CenterX="5" CenterY="5" ScaleX="1" ScaleY="1" />
+                    <TranslateTransform x:Name="starTranslate"  X="0" Y="0" />
+                    <RotateTransform x:Name="starRotate" CenterX="10" CenterY="10" Angle="0" />
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+    </Grid>
+</UserControl>
